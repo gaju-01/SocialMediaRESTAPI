@@ -1,4 +1,4 @@
-package RESTAPI.SocialMediaRestAPI;
+package RESTAPI.SocialMediaRestAPI.User_Details;
 
 import java.util.List;
 import java.util.ArrayList;

@@ -1,14 +1,15 @@
 package RESTAPI.SocialMediaRestAPI.filtering;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonFilter("SomeBeanFilter")
 public class SomeBean {
 
-    @JsonProperty("field-1")
+    @JsonProperty("field1")
     private String field1;
 
-    @JsonIgnore
+    // @JsonIgnore
     @JsonProperty("field2")
     private String field2;
 

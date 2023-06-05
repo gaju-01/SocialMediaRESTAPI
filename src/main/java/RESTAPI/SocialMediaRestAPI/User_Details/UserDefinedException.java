@@ -1,4 +1,4 @@
-package RESTAPI.SocialMediaRestAPI;
+package RESTAPI.SocialMediaRestAPI.User_Details;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -1,18 +1,25 @@
-package RESTAPI.SocialMediaRestAPI;
+package RESTAPI.SocialMediaRestAPI.User_Details;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import RESTAPI.SocialMediaRestAPI.Post_Details.Post;
+
+import java.util.*;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 
-@Entity(name = "User")
+@Entity(name = "user_details")
 public class User {
     @Id
+    @GeneratedValue
     @JsonProperty("id")
     private Integer id;
 
@@ -21,14 +28,22 @@ public class User {
     @JsonProperty("name")
     private String name;
 
-    @Column(name = "birthDate")
+    @Column(name = "birth_date")
     @Past(message = "The data should be of the past")
-    @JsonProperty("birth-date")
+    @JsonProperty("birth_date")
     private LocalDate birthDate;
 
-    @Column(name = "nickname")
-    @JsonProperty("nick-name")
+    @Column(name = "nick_name")
+    @JsonProperty("nick_name")
     private String nickName;
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<Post> post_details;
+
+    protected User() {
+
+    }
 
     public User(Integer id, String name, LocalDate birthDate, String nickName) {
         this.id = id;
@@ -43,6 +58,10 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setPosts(List<Post> post_details) {
+        this.post_details = post_details;
     }
 
     public void setBirthDate(LocalDate birthDate) {
@@ -67,6 +86,10 @@ public class User {
 
     public LocalDate getBirthDate() {
         return this.birthDate;
+    }
+
+    public List<Post> getPosts() {
+        return this.post_details;
     }
 
     public String toString() {
