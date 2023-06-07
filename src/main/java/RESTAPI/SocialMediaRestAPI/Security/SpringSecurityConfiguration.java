@@ -15,6 +15,5 @@ public class SpringSecurityConfiguration {
         http.httpBasic(withDefaults());
         http.csrf().disable();
         return http.build();
-
     }
 }
