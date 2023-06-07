@@ -1,15 +1,15 @@
 package RESTAPI.SocialMediaRestAPI.filtering;
 
-import java.util.Arrays;
 import java.util.List;
-
-import org.springframework.http.converter.json.MappingJacksonValue;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Arrays;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.fasterxml.jackson.databind.ser.FilterProvider;
-import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.converter.json.MappingJacksonValue;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
+import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 
 @RestController
 public class FilteringController {
@@ -40,5 +40,7 @@ public class FilteringController {
 
         return mappingJacksonValue;
     }
+
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 }

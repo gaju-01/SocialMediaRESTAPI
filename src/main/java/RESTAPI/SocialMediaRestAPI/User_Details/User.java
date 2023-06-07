@@ -1,25 +1,23 @@
 package RESTAPI.SocialMediaRestAPI.User_Details;
 
-import java.time.LocalDate;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import RESTAPI.SocialMediaRestAPI.Post_Details.Post;
-
 import java.util.*;
+import java.time.LocalDate;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.validation.constraints.Past;
-import jakarta.validation.constraints.Size;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import RESTAPI.SocialMediaRestAPI.Post_Details.Post;
 
 @Entity(name = "user_details")
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonProperty("id")
     private Integer id;
 
@@ -45,11 +43,10 @@ public class User {
 
     }
 
-    public User(Integer id, String name, LocalDate birthDate, String nickName) {
-        this.id = id;
+    public User(String name, LocalDate birthDate, String nickName, int id) {
         this.name = name;
-        this.birthDate = birthDate;
         this.nickName = nickName;
+        this.birthDate = birthDate;
     }
 
     public void setId(Integer id) {

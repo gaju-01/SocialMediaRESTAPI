@@ -10,11 +10,14 @@ import org.springframework.stereotype.Repository;
 public class UserDaoService {
     private static List<User> users = new ArrayList<>();
     private static int usersCount = 0;
-    static {
-        users.add(new User(++usersCount, "Gajanan C Hegde", LocalDate.now().minusYears(1), "gaju_01"));
-        users.add(new User(++usersCount, "Sumukha TS", LocalDate.now().minusYears(5), "BlackDread"));
-        users.add(new User(++usersCount, "Dhruva S", LocalDate.now().minusYears(10), "dhruva_shashi"));
-    }
+    // static {
+    // users.add(new User(++usersCount, "Gajanan C Hegde",
+    // LocalDate.now().minusYears(1), "gaju_01"));
+    // users.add(new User(++usersCount, "Sumukha TS", LocalDate.now().minusYears(5),
+    // "BlackDread"));
+    // users.add(new User(++usersCount, "Dhruva S", LocalDate.now().minusYears(10),
+    // "dhruva_shashi"));
+    // }
 
     public List<User> findAll() {
         return users;
